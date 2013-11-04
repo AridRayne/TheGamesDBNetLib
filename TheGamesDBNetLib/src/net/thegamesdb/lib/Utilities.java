@@ -5,23 +5,39 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
 public class Utilities {
-	public static PlatformData PlatformFromID(int ID) {
-		PlatformData platform = new PlatformData();
+	private String _mDevId;
+	private String _mApiUrl = "http://thegamesdb.net/api/";
+	private String _mUserAgent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
+	
+	public Utilities() {
+		this._mDevId = "";
+	}
+	
+	public Utilities(String DeveloperID) {
+		this._mDevId = DeveloperID;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Data<PlatformItem> PlatformFromID(int ID) {
+		//GenericData<PlatformItem> platform = new GenericData<PlatformItem>();
+		Data<PlatformItem> platform = new Data<PlatformItem>();
 		URL url;
 		try {
-			url = new URL("http://thegamesdb.net/api/GetPlatform.php?id=" + ID);
+			url = new URL(_mApiUrl + "GetPlatform.php?id=" + ID);
 			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2");
+			conn.setRequestProperty("User-Agent", _mUserAgent);
 			InputStream is = conn.getInputStream();
-			JAXBContext context = JAXBContext.newInstance(PlatformData.class);
-			Unmarshaller unmarshaller = context.createUnmarshaller();
-			platform = (PlatformData) unmarshaller.unmarshal(is);
-		} catch (IOException | JAXBException e) {
+			Serializer serializer = new Persister();
+			platform = serializer.read(Data.class, is, false);
+			//platform = serializer.read(PlatformData.class, is, false);
+		} catch (IOException  e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -29,18 +45,21 @@ public class Utilities {
 	}
 	
 	//TODO: Add the other options for finding games from http://wiki.thegamesdb.net/index.php?title=GetGame
-	public static GameData GameFromID(int ID) {
-		GameData game = new GameData();
+	@SuppressWarnings("unchecked")
+	public Data<GameItem> GameFromID(int ID) {
+		Data<GameItem> game = new Data<GameItem>();
 		try {
 			URL url;
-			url = new URL("http://thegamesdb.net/api/GetGame.php?id=" + ID);
+			url = new URL(_mApiUrl + "GetGame.php?id=" + ID);
 			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2");
+			conn.setRequestProperty("User-Agent", _mUserAgent);
 			InputStream is = conn.getInputStream();
-			JAXBContext context = JAXBContext.newInstance(GameData.class);
-			Unmarshaller unmarshaller = context.createUnmarshaller();
-			game = (GameData) unmarshaller.unmarshal(is);
-		} catch (JAXBException | IOException e) {
+			Serializer serializer = new Persister();
+			game = serializer.read(Data.class, is, false);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

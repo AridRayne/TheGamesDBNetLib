@@ -1,24 +1,39 @@
 package net.thegamesdb.lib;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Element;
 
 //TODO: Add fields for images from the xml.
+@Element(name="Platform")
 public class PlatformItem {
+	@Element
 	public int id;
-	@XmlElement(name="Platform")
+	@Element(name="Platform")
 	public String name;
+	@Element
+	public String console;
+	@Element
+	public String controller;
+	@Element
 	public String overview;
+	@Element
 	public String developer;
+	@Element
 	public String manufacturer;
+	@Element
 	public String cpu;
+	@Element
 	public String memory;
+	@Element
 	public String graphics;
+	@Element
 	public String sound;
+	@Element
 	public String display;
+	@Element
 	public String media;
-	@XmlElement(name="maxcontrollers")
+	@Element(name="maxcontrollers")
 	public int maxControllers;
-	@XmlElement(name="Rating")
+	@Element(name="Rating")
 	public double rating;
 	//public PlatformImages images;
 	

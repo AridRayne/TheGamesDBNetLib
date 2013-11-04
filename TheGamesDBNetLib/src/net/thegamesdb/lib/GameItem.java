@@ -1,38 +1,37 @@
 package net.thegamesdb.lib;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 public class GameItem {
 	public int id;
-	@XmlElement(name="GameTitle")
+	@Element(name="GameTitle")
 	public String title;
-	@XmlElement(name="PlatformId")
+	@Element(name="PlatformId")
 	public int platformID;
-	@XmlElement(name="Platform")
+	@Element(name="Platform")
 	public String platform;
-	@XmlElement(name="ReleaseDate")
-	public Date releaseDate;
-	@XmlElement(name="Overview")
+//	@Element(name="ReleaseDate")
+//	public Date releaseDate;
+	@Element(name="Overview")
 	public 	String overview;
-	@XmlElement(name="ESRB")
+	@Element(name="ESRB")
 	public String esrb;
-	@XmlElement(name="Genres")
+	@ElementList(inline=true, entry="Genres")
 	public List<String> genres;
-	@XmlElement(name="Players")
+	@Element(name="Players")
 	public String players;
-	@XmlElement(name="Co-op")
+	@Element(name="Co-op")
 	public String coop;
-	@XmlElement(name="Youtube")
+	@Element(name="Youtube")
 	public String youtube;
-	@XmlElement(name="Publisher")
+	@Element(name="Publisher")
 	public String publisher;
-	@XmlElement(name="Developer")
+	@Element(name="Developer")
 	public String developer;
-	@XmlElement(name="Rating")
+	@Element(name="Rating")
 	public double rating;
 	
 	public GameItem() {
@@ -40,7 +39,7 @@ public class GameItem {
 		this.title = "";
 		this.platformID = 0;
 		this.platform = "";
-		this.releaseDate = new Date();
+//		this.releaseDate = new Date();
 		this.overview = "";
 		this.esrb = "";
 		this.players = "";
