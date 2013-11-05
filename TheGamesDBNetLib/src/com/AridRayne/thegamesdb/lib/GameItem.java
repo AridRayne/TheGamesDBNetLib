@@ -1,4 +1,4 @@
-package net.thegamesdb.lib;
+package com.AridRayne.thegamesdb.lib;
 
 import java.util.List;
 

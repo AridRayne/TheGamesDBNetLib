@@ -1,4 +1,4 @@
-package net.thegamesdb.lib;
+package com.AridRayne.thegamesdb.lib;
 
 import org.simpleframework.xml.Element;
 

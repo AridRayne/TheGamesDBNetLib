@@ -1,4 +1,4 @@
-package net.thegamesdb.lib.image;
+package com.AridRayne.thegamesdb.lib.image;
 
 public class FanArt {
 	public Image original;
