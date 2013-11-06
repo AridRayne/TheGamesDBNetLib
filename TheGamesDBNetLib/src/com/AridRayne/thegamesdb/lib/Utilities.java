@@ -6,8 +6,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.simpleframework.xml.Path;
-import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
@@ -83,7 +81,6 @@ public class Utilities {
 			}
 	}
 	
-/* Commented out because the api only returns general ratings, not the user's
 	public double getRating(int ID) {
 		try {
 			URL url;
@@ -106,5 +103,4 @@ public class Utilities {
 		}
 		return -1;
 	}
- */
 }
