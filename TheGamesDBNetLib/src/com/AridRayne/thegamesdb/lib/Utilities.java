@@ -90,7 +90,7 @@ public class Utilities {
 			InputStream is = conn.getInputStream();
 			Serializer serializer = new Persister();
 			ratingClass rc = serializer.read(ratingClass.class, is, false);
-			return rc.Rating;
+			return rc.rating;
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,5 +102,28 @@ public class Utilities {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	public PlatformList getPlatformList() {
+		try {
+			URL url;
+			url = new URL(apiUrl + "GetPlatformsList.php");
+			URLConnection conn = url.openConnection();
+			conn.setRequestProperty("User-Agent", userAgent);
+			InputStream is = conn.getInputStream();
+			Serializer serializer = new Persister();
+			PlatformList list = serializer.read(PlatformList.class, is, false);
+			return list;
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

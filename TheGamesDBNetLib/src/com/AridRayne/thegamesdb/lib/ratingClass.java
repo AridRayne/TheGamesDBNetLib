@@ -7,6 +7,6 @@ import org.simpleframework.xml.Root;
 @Root(name="Data")
 public class ratingClass {
 	@Path("game")
-	@Element
-	double Rating;
+	@Element(name="Rating")
+	double rating;
 }
