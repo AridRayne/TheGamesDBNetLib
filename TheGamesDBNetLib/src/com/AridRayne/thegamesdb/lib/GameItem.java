@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Path;
 
 public class GameItem {
 	@Element
@@ -19,7 +20,8 @@ public class GameItem {
 	public 	String overview;
 	@Element(name="ESRB")
 	public String esrb;
-	@ElementList(inline=true, entry="Genres")
+	@Path("Genres")
+	@ElementList(inline=true, entry="genre")
 	public List<String> genres;
 	@Element(name="Players")
 	public String players;
