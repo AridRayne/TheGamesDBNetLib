@@ -1,11 +1,13 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.util.Date;
 import java.util.List;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 public class GameItem {
+	@Element
 	public int id;
 	@Element(name="GameTitle")
 	public String title;
@@ -33,6 +35,8 @@ public class GameItem {
 	public String developer;
 	@Element(name="Rating")
 	public double rating;
+	@Element(name="ReleaseDate")
+	public Date releaseDate;
 	
 	public GameItem() {
 		this.id = 0;

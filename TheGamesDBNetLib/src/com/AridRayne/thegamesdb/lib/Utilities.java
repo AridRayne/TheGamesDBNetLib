@@ -5,9 +5,13 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
+import org.simpleframework.xml.transform.RegistryMatcher;
 
 public class Utilities {
 	public String devId;
@@ -32,11 +36,9 @@ public class Utilities {
 			InputStream is = conn.getInputStream();
 			Serializer serializer = new Persister();
 			platform = serializer.read(Data.class, is, false);
-			//platform = serializer.read(PlatformData.class, is, false);
 		} catch (IOException  e) {
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -53,13 +55,14 @@ public class Utilities {
 			URLConnection conn = url.openConnection();
 			conn.setRequestProperty("User-Agent", userAgent);
 			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
+			DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+			RegistryMatcher m = new RegistryMatcher();
+			m.bind(Date.class, new DateTransformer(df));
+			Serializer serializer = new Persister(m);
 			game = serializer.read(Data.class, is, false);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -73,10 +76,8 @@ public class Utilities {
 				URLConnection conn = url.openConnection();
 				conn.setRequestProperty("User-Agent", userAgent);
 			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
@@ -92,13 +93,10 @@ public class Utilities {
 			ratingClass rc = serializer.read(ratingClass.class, is, false);
 			return rc.rating;
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return -1;
@@ -115,13 +113,10 @@ public class Utilities {
 			PlatformList list = serializer.read(PlatformList.class, is, false);
 			return list;
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
