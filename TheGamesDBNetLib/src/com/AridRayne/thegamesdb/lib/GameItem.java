@@ -15,8 +15,6 @@ public class GameItem {
 	public int platformID;
 	@Element(name="Platform")
 	public String platform;
-//	@Element(name="ReleaseDate")
-//	public Date releaseDate;
 	@Element(name="Overview")
 	public 	String overview;
 	@Element(name="ESRB")
@@ -25,9 +23,9 @@ public class GameItem {
 	public List<String> genres;
 	@Element(name="Players")
 	public String players;
-	@Element(name="Co-op")
+	@Element(name="Co-op", required=false)
 	public String coop;
-	@Element(name="Youtube")
+	@Element(name="Youtube", required=false)
 	public String youtube;
 	@Element(name="Publisher")
 	public String publisher;
