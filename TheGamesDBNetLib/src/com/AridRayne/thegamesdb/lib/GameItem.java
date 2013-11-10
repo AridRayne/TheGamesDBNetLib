@@ -7,6 +7,8 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Path;
 
+import com.AridRayne.thegamesdb.lib.image.GameImage;
+
 public class GameItem {
 	@Element
 	public int id;
@@ -37,6 +39,8 @@ public class GameItem {
 	public double rating;
 	@Element(name="ReleaseDate")
 	public Date releaseDate;
+	@Element(name="Images")
+	public GameImage images;
 	
 	public GameItem() {
 		this.id = 0;

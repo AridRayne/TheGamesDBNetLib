@@ -2,6 +2,8 @@ package com.AridRayne.thegamesdb.lib;
 
 import org.simpleframework.xml.Element;
 
+import com.AridRayne.thegamesdb.lib.image.PlatformImage;
+
 //TODO: Add fields for images from the xml.
 @Element(name="Platform")
 public class PlatformItem {
@@ -35,7 +37,8 @@ public class PlatformItem {
 	public int maxControllers;
 	@Element(name="Rating")
 	public double rating;
-	//public PlatformImages images;
+	@Element(name="Images")
+	public PlatformImage images;
 	
 	public PlatformItem() {
 		this.id = 0;
