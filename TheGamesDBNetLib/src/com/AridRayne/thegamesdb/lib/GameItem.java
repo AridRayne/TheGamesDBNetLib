@@ -18,28 +18,28 @@ public class GameItem {
 	public int platformID;
 	@Element(name="Platform")
 	public String platform;
-	@Element(name="Overview")
+	@Element(name="Overview", required=false)
 	public 	String overview;
-	@Element(name="ESRB")
+	@Element(name="ESRB", required=false)
 	public String esrb;
 	@Path("Genres")
-	@ElementList(inline=true, entry="genre")
+	@ElementList(inline=true, entry="genre", required=false)
 	public List<String> genres;
-	@Element(name="Players")
+	@Element(name="Players", required=false)
 	public String players;
 	@Element(name="Co-op", required=false)
 	public String coop;
 	@Element(name="Youtube", required=false)
 	public String youtube;
-	@Element(name="Publisher")
+	@Element(name="Publisher", required=false)
 	public String publisher;
-	@Element(name="Developer")
+	@Element(name="Developer", required=false)
 	public String developer;
 	@Element(name="Rating")
 	public double rating;
-	@Element(name="ReleaseDate")
+	@Element(name="ReleaseDate", required=false)
 	public Date releaseDate;
-	@Element(name="Images")
+	@Element(name="Images", required=false)
 	public GameImage images;
 	
 	public GameItem() {

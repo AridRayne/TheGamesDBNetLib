@@ -11,33 +11,33 @@ public class PlatformItem {
 	public int id;
 	@Element(name="Platform")
 	public String name;
-	@Element
+	@Element(required=false)
 	public String console;
-	@Element
+	@Element(required=false)
 	public String controller;
-	@Element
+	@Element(required=false)
 	public String overview;
-	@Element
+	@Element(required=false)
 	public String developer;
-	@Element
+	@Element(required=false)
 	public String manufacturer;
-	@Element
+	@Element(required=false)
 	public String cpu;
-	@Element
+	@Element(required=false)
 	public String memory;
-	@Element
+	@Element(required=false)
 	public String graphics;
-	@Element
+	@Element(required=false)
 	public String sound;
-	@Element
+	@Element(required=false)
 	public String display;
-	@Element
+	@Element(required=false)
 	public String media;
-	@Element(name="maxcontrollers")
+	@Element(name="maxcontrollers", required=false)
 	public int maxControllers;
 	@Element(name="Rating")
 	public double rating;
-	@Element(name="Images")
+	@Element(name="Images", required=false)
 	public PlatformImage images;
 	
 	public PlatformItem() {
