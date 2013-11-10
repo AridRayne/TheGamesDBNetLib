@@ -35,7 +35,7 @@ public class GameItem {
 	public String publisher;
 	@Element(name="Developer", required=false)
 	public String developer;
-	@Element(name="Rating")
+	@Element(name="Rating", required=false)
 	public double rating;
 	@Element(name="ReleaseDate", required=false)
 	public Date releaseDate;

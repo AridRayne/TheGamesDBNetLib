@@ -34,8 +34,8 @@ public class PlatformItem {
 	@Element(required=false)
 	public String media;
 	@Element(name="maxcontrollers", required=false)
-	public int maxControllers;
-	@Element(name="Rating")
+	public String maxControllers;
+	@Element(name="Rating", required=false)
 	public double rating;
 	@Element(name="Images", required=false)
 	public PlatformImage images;
@@ -52,7 +52,7 @@ public class PlatformItem {
 		this.sound = "";
 		this.display = "";
 		this.media = "";
-		this.maxControllers = 0;
+		this.maxControllers = "";
 		this.rating = 0.0;
 		//this.images = new PlatformImages();
 	}
