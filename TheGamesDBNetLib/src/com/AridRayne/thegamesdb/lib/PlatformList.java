@@ -1,5 +1,6 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.simpleframework.xml.Element;
@@ -15,4 +16,9 @@ public class PlatformList {
 	@Path("Platforms")
 	@ElementList(entry="Platform", inline=true)
 	public List<PlatformListItems> items;
+	
+	public PlatformList() {
+		basePlatformUrl = "";
+		items = new ArrayList<PlatformListItems>();
+	}
 }
