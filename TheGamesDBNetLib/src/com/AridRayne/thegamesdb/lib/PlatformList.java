@@ -57,6 +57,10 @@ public class PlatformList implements Serializable {
 	public void setItems(List<PlatformListItem> items) {
 		this.items = items;
 	}
+	
+	public PlatformListItem getItem(int Position) {
+		return this.items.get(Position);
+	}
 
 	public PlatformList() {
 		basePlatformUrl = "";
