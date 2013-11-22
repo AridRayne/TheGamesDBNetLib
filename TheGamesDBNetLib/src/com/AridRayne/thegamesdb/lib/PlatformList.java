@@ -9,7 +9,11 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
 
-//@Path("Platforms")
+/**
+ * A class that contains a list of platforms retrieved from thegamesdb.net
+ * @author AridRayne
+ *
+ */
 @Root
 public class PlatformList implements Serializable {
 	/**
@@ -20,26 +24,42 @@ public class PlatformList implements Serializable {
 	private String basePlatformUrl;
 	@Path("Platforms")
 	@ElementList(entry="Platform", inline=true)
-	private List<PlatformListItems> items;
+	private List<PlatformListItem> items;
 	
+	/**
+	 * Returns the base platform url.
+	 * @return The base platform url.
+	 */
 	public String getBasePlatformUrl() {
 		return basePlatformUrl;
 	}
 
+	/**
+	 * Sets the base platform url.
+	 * @param basePlatformUrl The base platform url.
+	 */
 	public void setBasePlatformUrl(String basePlatformUrl) {
 		this.basePlatformUrl = basePlatformUrl;
 	}
 
-	public List<PlatformListItems> getItems() {
+	/**
+	 * Returns a list of PlatformListItem that contains all the platforms names, aliases, and IDs.
+	 * @return List of PlatformListItem.
+	 */
+	public List<PlatformListItem> getItems() {
 		return items;
 	}
 
-	public void setItems(List<PlatformListItems> items) {
+	/**
+	 * Sets the list of PlatformListItem.
+	 * @param items The list of PlatformListItem.
+	 */
+	public void setItems(List<PlatformListItem> items) {
 		this.items = items;
 	}
 
 	public PlatformList() {
 		basePlatformUrl = "";
-		items = new ArrayList<PlatformListItems>();
+		items = new ArrayList<PlatformListItem>();
 	}
 }

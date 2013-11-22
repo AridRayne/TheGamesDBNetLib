@@ -6,7 +6,11 @@ import org.simpleframework.xml.Element;
 
 import com.AridRayne.thegamesdb.lib.image.PlatformImage;
 
-//TODO: Add fields for images from the xml.
+/**
+ * A class that contains platform information retrieved from thegamesdb.net
+ * @author AridRayne
+ *
+ */
 @Element(name="Platform")
 public class Platform implements Serializable {
 	/**
@@ -28,7 +32,7 @@ public class Platform implements Serializable {
 	@Element(required=false)
 	private String manufacturer;
 	@Element(required=false)
-	private String cpu;
+	private String CPU;
 	@Element(required=false)
 	private String memory;
 	@Element(required=false)
@@ -46,130 +50,258 @@ public class Platform implements Serializable {
 	@Element(name="Images", required=false)
 	private PlatformImage images;
 	
+	/**
+	 * Returns the ID of the platform.
+	 * @return The ID of the platform.
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the ID of the platform.
+	 * @param id The ID of the platform.
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Returns the name of the platform.
+	 * @return The name of the platform.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name of the platform.
+	 * @param name The name of the platform.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Returns the console url of the platform.
+	 * @return The console url of the platform.
+	 */
 	public String getConsole() {
 		return console;
 	}
 
+	/**
+	 * Sets the console url of the platform.
+	 * @param console The console url of the platform.
+	 */
 	public void setConsole(String console) {
 		this.console = console;
 	}
 
+	/**
+	 * Returns the controller url of the platform.
+	 * @return The controller url of the platform.
+	 */
 	public String getController() {
 		return controller;
 	}
 
+	/**
+	 * Sets the controller url of the platform.
+	 * @param controller The controller url of the platform.
+	 */
 	public void setController(String controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Returns the overview of the platform.
+	 * @return The overview of the platform.
+	 */
 	public String getOverview() {
 		return overview;
 	}
 
+	/**
+	 * Sets the overview of the platform.
+	 * @param overview The overview of the platform.
+	 */
 	public void setOverview(String overview) {
 		this.overview = overview;
 	}
 
+	/**
+	 * Returns the developer of the platform.
+	 * @return The developer of the platform.
+	 */
 	public String getDeveloper() {
 		return developer;
 	}
 
+	/**
+	 * Sets the developer of the platform.
+	 * @param developer The developer of the platform.
+	 */
 	public void setDeveloper(String developer) {
 		this.developer = developer;
 	}
 
+	/**
+	 * Returns the manufacturer of the platform.
+	 * @return The manufacturer of the platform.
+	 */
 	public String getManufacturer() {
 		return manufacturer;
 	}
 
+	/**
+	 * Sets the manufacturer of the platform.
+	 * @param manufacturer The manufacturer of the platform.
+	 */
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
 
-	public String getCpu() {
-		return cpu;
+	/**
+	 * Returns the CPU of the platform.
+	 * @return The CPU of the platform.
+	 */
+	public String getCPU() {
+		return CPU;
 	}
 
-	public void setCpu(String cpu) {
-		this.cpu = cpu;
+	/**
+	 * Sets the CPU of the platform.
+	 * @param CPU The CPU of the platform.
+	 */
+	public void setCPU(String CPU) {
+		this.CPU = CPU;
 	}
 
+	/**
+	 * Returns the memory of the platform.
+	 * @return The memory of the platform.
+	 */
 	public String getMemory() {
 		return memory;
 	}
 
+	/**
+	 * Sets the memory of the platform.
+	 * @param memory The memory of the platform.
+	 */
 	public void setMemory(String memory) {
 		this.memory = memory;
 	}
 
+	/**
+	 * Returns the graphics of the platform.
+	 * @return The graphics of the platform.
+	 */
 	public String getGraphics() {
 		return graphics;
 	}
 
+	/**
+	 * Sets the graphics of the platform.
+	 * @param graphics The graphics of the platform.
+	 */
 	public void setGraphics(String graphics) {
 		this.graphics = graphics;
 	}
 
+	/**
+	 * Returns the sound of the platform.
+	 * @return The sound of the platform.
+	 */
 	public String getSound() {
 		return sound;
 	}
 
+	/**
+	 * Sets the sound of the platform.
+	 * @param sound The sound of the platform.
+	 */
 	public void setSound(String sound) {
 		this.sound = sound;
 	}
 
+	/**
+	 * Returns the display of the platform.
+	 * @return The display of the platform.
+	 */
 	public String getDisplay() {
 		return display;
 	}
 
+	/**
+	 * Sets the display of the platform.
+	 * @param display The display of the platform.
+	 */
 	public void setDisplay(String display) {
 		this.display = display;
 	}
 
+	/**
+	 * Returns the media of the platform.
+	 * @return The media of the platform.
+	 */
 	public String getMedia() {
 		return media;
 	}
 
+	/**
+	 * Sets the media of the platform.
+	 * @param media The media of the platform.
+	 */
 	public void setMedia(String media) {
 		this.media = media;
 	}
 
+	/**
+	 * Returns the max controllers of the platform.
+	 * @return The max controllers of the platform.
+	 */
 	public String getMaxControllers() {
 		return maxControllers;
 	}
 
+	/**
+	 * Sets the max controllers of the platform.
+	 * @param maxControllers The max controllers of the platform.
+	 */
 	public void setMaxControllers(String maxControllers) {
 		this.maxControllers = maxControllers;
 	}
 
+	/**
+	 * Returns the rating of the platform.
+	 * @return The rating of the platform.
+	 */
 	public double getRating() {
 		return rating;
 	}
 
+	/**
+	 * Sets the rating of the platform.
+	 * @param rating The rating of the platform.
+	 */
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
 
+	/**
+	 * Returns the PlatformImage of the platform, this contains info about the images for this platform.
+	 * @return The PlatformImage of the platform.
+	 */
 	public PlatformImage getImages() {
 		return images;
 	}
 
+	/**
+	 * Sets the PlatformImage of the platform, this contains info about the images for this platform.
+	 * @param images The PlatformImage of the platform.
+	 */
 	public void setImages(PlatformImage images) {
 		this.images = images;
 	}
@@ -180,7 +312,7 @@ public class Platform implements Serializable {
 		this.overview = "";
 		this.developer = "";
 		this.manufacturer = "";
-		this.cpu = "";
+		this.CPU = "";
 		this.memory = "";
 		this.graphics = "";
 		this.sound = "";

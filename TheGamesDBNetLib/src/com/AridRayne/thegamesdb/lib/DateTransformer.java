@@ -5,6 +5,11 @@ import java.util.Date;
 
 import org.simpleframework.xml.transform.Transform;
 
+/**
+ * A simple Transform class to work with thegamesdb.net date format of MM/DD/YYYY
+ * @author AridRayne
+ *
+ */
 public class DateTransformer implements Transform<Date> {
 	private DateFormat dateFormat;
 	
