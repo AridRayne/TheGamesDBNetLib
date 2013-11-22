@@ -3,7 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/rayne/Development/Workspace/Libraries/simple-xml-2.7.1/jar/simple-xml-2.7.1.jar"/>
-	<classpathentry kind="lib" path="/home/rayne/Development/Workspace/Libraries/commons-lang3-3.1/commons-lang3-3.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TheGamesDBNetLib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Path;
@@ -73,7 +74,7 @@ public class Game implements Serializable {
 	 * @return The game's title.
 	 */
 	public String getTitle() {
-		return title;
+		return StringEscapeUtils.unescapeXml(title);
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class Game implements Serializable {
 	 * @return The name of the platform that the game belongs to.
 	 */
 	public String getPlatform() {
-		return platform;
+		return StringEscapeUtils.unescapeXml(platform);
 	}
 
 	/**
@@ -121,7 +122,7 @@ public class Game implements Serializable {
 	 * @return The overview of the game.
 	 */
 	public String getOverview() {
-		return overview;
+		return StringEscapeUtils.unescapeXml(overview);
 	}
 
 	/**
@@ -137,7 +138,7 @@ public class Game implements Serializable {
 	 * @return the ESRB rating of the game.
 	 */
 	public String getEsrb() {
-		return esrb;
+		return StringEscapeUtils.unescapeXml(esrb);
 	}
 
 	/**
@@ -169,7 +170,7 @@ public class Game implements Serializable {
 	 * @return The number of players for the game.
 	 */
 	public String getPlayers() {
-		return players;
+		return StringEscapeUtils.unescapeXml(players);
 	}
 
 	/**
@@ -185,7 +186,7 @@ public class Game implements Serializable {
 	 * @return The Co-Op capabilities of the game.
 	 */
 	public String getCoop() {
-		return coop;
+		return StringEscapeUtils.unescapeXml(coop);
 	}
 
 	/**
@@ -217,7 +218,7 @@ public class Game implements Serializable {
 	 * @return The publisher for the game.
 	 */
 	public String getPublisher() {
-		return publisher;
+		return StringEscapeUtils.unescapeXml(publisher);
 	}
 
 	/**
@@ -233,7 +234,7 @@ public class Game implements Serializable {
 	 * @return The developer for the game.
 	 */
 	public String getDeveloper() {
-		return developer;
+		return StringEscapeUtils.unescapeXml(developer);
 	}
 
 	/**
