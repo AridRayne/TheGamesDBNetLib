@@ -36,4 +36,7 @@ public class Data<T> implements Serializable {
 	public void setItems(List<T> items) {
 		this.items = items;
 	}
+	public T getItem(int Position) {
+		return this.items.get(Position);
+	}
 }
