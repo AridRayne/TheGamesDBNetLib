@@ -10,11 +10,35 @@ public class PlatformListItems implements Serializable {
 	 */
 	private static final long serialVersionUID = -2523150382777395131L;
 	@Element
-	public int id;
+	private int id;
 	@Element
-	public String name;
+	private String name;
 	@Element(required=false)
-	public String alias;
+	private String alias;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAlias() {
+		return alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
 	@Override
 	public String toString() {

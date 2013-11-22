@@ -17,11 +17,27 @@ public class PlatformList implements Serializable {
 	 */
 	private static final long serialVersionUID = -1229486620611225660L;
 	@Element
-	public String basePlatformUrl;
+	private String basePlatformUrl;
 	@Path("Platforms")
 	@ElementList(entry="Platform", inline=true)
-	public List<PlatformListItems> items;
+	private List<PlatformListItems> items;
 	
+	public String getBasePlatformUrl() {
+		return basePlatformUrl;
+	}
+
+	public void setBasePlatformUrl(String basePlatformUrl) {
+		this.basePlatformUrl = basePlatformUrl;
+	}
+
+	public List<PlatformListItems> getItems() {
+		return items;
+	}
+
+	public void setItems(List<PlatformListItems> items) {
+		this.items = items;
+	}
+
 	public PlatformList() {
 		basePlatformUrl = "";
 		items = new ArrayList<PlatformListItems>();

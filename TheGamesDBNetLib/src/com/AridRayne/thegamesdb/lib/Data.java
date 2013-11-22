@@ -17,10 +17,23 @@ public class Data<T> implements Serializable {
 		@Element(name="baseImgUrl"),
 		@Element(name="basePlatformUrl")
 	})
-	public String baseUrl;
+	private String baseUrl;
 	@ElementListUnion({
-		@ElementList(entry="Game", type=GameItem.class, inline=true),
-		@ElementList(entry="Platform", type=PlatformItem.class, inline=true),
+		@ElementList(entry="Game", type=Game.class, inline=true),
+		@ElementList(entry="Platform", type=Platform.class, inline=true),
 	})
-	public List<T> items;
+	private List<T> items;
+	
+	public String getBaseUrl() {
+		return baseUrl;
+	}
+	public void setBaseUrl(String baseUrl) {
+		this.baseUrl = baseUrl;
+	}
+	public List<T> getItems() {
+		return items;
+	}
+	public void setItems(List<T> items) {
+		this.items = items;
+	}
 }

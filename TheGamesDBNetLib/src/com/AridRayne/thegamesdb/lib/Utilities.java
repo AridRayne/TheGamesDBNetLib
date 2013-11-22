@@ -14,20 +14,50 @@ import org.simpleframework.xml.core.Persister;
 import org.simpleframework.xml.transform.RegistryMatcher;
 
 public class Utilities {
-	public String devId;
-	public String userId;
-	public String apiUrl = "http://thegamesdb.net/api/";
-	public String userAgent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
+	private String devId;
+	private String userId;
+	private String apiUrl = "http://thegamesdb.net/api/";
+	private String userAgent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
+	private static Utilities instance;
 	
-	public Utilities() {
+	public static Utilities getInstance() {
+		if (instance == null)
+			instance = new Utilities();
+		return instance;
+	}
+	
+	public String getDevId() {
+		return devId;
+	}
+
+	public void setDevId(String devId) {
+		this.devId = devId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
+	}
+
+	private Utilities() {
 		this.devId = "";
 		this.userId = "";
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Data<PlatformItem> PlatformFromID(int ID) {
-		//GenericData<PlatformItem> platform = new GenericData<PlatformItem>();
-		Data<PlatformItem> platform = new Data<PlatformItem>();
+	public Data<Platform> getPlatformFromID(int ID) {
+		Data<Platform> platform = new Data<Platform>();
 		URL url;
 		try {
 			url = new URL(apiUrl + "GetPlatform.php?id=" + ID);
@@ -47,8 +77,8 @@ public class Utilities {
 	
 	//TODO: Add the other options for finding games from http://wiki.thegamesdb.net/index.php?title=GetGame
 	@SuppressWarnings("unchecked")
-	public Data<GameItem> GameFromID(int ID) {
-		Data<GameItem> game = new Data<GameItem>();
+	public Data<Game> getGameFromID(int ID) {
+		Data<Game> game = new Data<Game>();
 		try {
 			URL url;
 			url = new URL(apiUrl + "GetGame.php?id=" + ID);
@@ -91,7 +121,7 @@ public class Utilities {
 			InputStream is = conn.getInputStream();
 			Serializer serializer = new Persister();
 			ratingClass rc = serializer.read(ratingClass.class, is, false);
-			return rc.rating;
+			return rc.getRating();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
