@@ -1,5 +1,6 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,11 @@ import org.simpleframework.xml.Path;
 
 import com.AridRayne.thegamesdb.lib.image.GameImage;
 
-public class GameItem {
+public class GameItem implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3404387198259596339L;
 	@Element
 	public int id;
 	@Element(name="GameTitle")

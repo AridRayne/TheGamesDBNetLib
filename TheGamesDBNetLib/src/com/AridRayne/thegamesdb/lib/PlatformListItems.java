@@ -1,8 +1,14 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.io.Serializable;
+
 import org.simpleframework.xml.Element;
 
-public class PlatformListItems {
+public class PlatformListItems implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2523150382777395131L;
 	@Element
 	public int id;
 	@Element

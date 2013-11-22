@@ -1,12 +1,18 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.io.Serializable;
+
 import org.simpleframework.xml.Element;
 
 import com.AridRayne.thegamesdb.lib.image.PlatformImage;
 
 //TODO: Add fields for images from the xml.
 @Element(name="Platform")
-public class PlatformItem {
+public class PlatformItem implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8028629731109058336L;
 	@Element
 	public int id;
 	@Element(name="Platform")
