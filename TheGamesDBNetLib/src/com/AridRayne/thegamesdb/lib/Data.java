@@ -1,4 +1,4 @@
-package com.AridRayne.thegamesdb.lib;
+  package com.AridRayne.thegamesdb.lib;
 
 import java.io.Serializable;
 import java.util.List;

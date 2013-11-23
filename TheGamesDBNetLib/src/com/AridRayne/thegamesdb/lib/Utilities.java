@@ -210,4 +210,28 @@ public class Utilities {
 		}
 		return null;
 	}
+        
+        	/**
+	 * Returns a list of all platforms in thegamesdb.net database.
+	 * @return PlatformList containing a list of all platforms.
+	 */
+	public GameList getGamesList(String name) {
+		try {
+			URL url;
+			url = new URL(apiUrl + "GetGamesList.php?name=" + name);
+			URLConnection conn = url.openConnection();
+			conn.setRequestProperty("User-Agent", userAgent);
+			InputStream is = conn.getInputStream();
+			Serializer serializer = new Persister();
+			GameList list = serializer.read(GameList.class, is, false);
+			return list;
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
