@@ -9,7 +9,7 @@ import org.simpleframework.xml.Path;
 
 /**
  *
- * @author Pieter
+ * @author Pieter van Dorst
  */
 public class GameList implements Serializable {
     	/**
@@ -19,7 +19,7 @@ public class GameList implements Serializable {
 	private List<GameListItem> items;
 
 	/**
-	 * Returns a list of PlatformListItem that contains all the platforms names, aliases, and IDs.
+	 * Returns a list of GameListItems that contains all the game names, release dates, and platforms.
 	 * @return List of PlatformListItem.
 	 */
 	public List<GameListItem> getItems() {
@@ -27,7 +27,7 @@ public class GameList implements Serializable {
 	}
 
 	/**
-	 * Sets the list of PlatformListItem.
+	 * Sets the list of GameListItem.
 	 * @param items The list of PlatformListItem.
 	 */
 	public void setItems(List<GameListItem> items) {

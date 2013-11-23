@@ -4,7 +4,7 @@ import org.simpleframework.xml.Element;
 
 /**
  *
- * @author Pieter
+ * @author Pieter van Dorst
  */
 public class GameListItem {
     	/**
