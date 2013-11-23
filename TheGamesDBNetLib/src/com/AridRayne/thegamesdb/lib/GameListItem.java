@@ -1,19 +1,20 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.io.Serializable;
 import org.simpleframework.xml.Element;
 
 /**
  *
  * @author Pieter van Dorst
  */
-public class GameListItem {
+public class GameListItem implements Serializable {
     	/**
 	 * 
 	 */
         @Element
         private int id;
 	@Element(name="GameTitle")
-	private String name;
+	private String title;
 	@Element(name="ReleaseDate", required=false)
 	private String releaseDate;
 	@Element(name="Platform", required=false)
@@ -36,19 +37,19 @@ public class GameListItem {
 	}
 
 	/**
-	 * Returns the name of the game.
-	 * @return The name of the game.
+	 * Returns the title of the game.
+	 * @return The title of the game.
 	 */
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
 	/**
-	 * Sets the name of the game.
-	 * @param name The name of the game.
+	 * Sets the title of the game.
+	 * @param title The title of the game.
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	/**
@@ -85,6 +86,6 @@ public class GameListItem {
 
 	@Override
 	public String toString() {
-		return name;
+		return title;
 	}
 }
