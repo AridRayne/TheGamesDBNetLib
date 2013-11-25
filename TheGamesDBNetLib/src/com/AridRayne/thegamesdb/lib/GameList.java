@@ -3,9 +3,8 @@ package com.AridRayne.thegamesdb.lib;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.simpleframework.xml.Element;
+
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Path;
 
 /**
  *
@@ -13,6 +12,10 @@ import org.simpleframework.xml.Path;
  */
 public class GameList implements Serializable {
     	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1414253223493142749L;
+		/**
 	 * 
 	 */
 	@ElementList(entry="Game", inline=true)

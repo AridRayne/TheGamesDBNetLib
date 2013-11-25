@@ -5,13 +5,9 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
-import org.simpleframework.xml.transform.RegistryMatcher;
 
 /**
  * A utilities class that helps get information from thegamesdb.net.
@@ -128,10 +124,7 @@ public class Utilities {
 			URLConnection conn = url.openConnection();
 			conn.setRequestProperty("User-Agent", userAgent);
 			InputStream is = conn.getInputStream();
-			DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-			RegistryMatcher m = new RegistryMatcher();
-			m.bind(Date.class, new DateTransformer(df));
-			Serializer serializer = new Persister(m);
+			Serializer serializer = new Persister();
 			game = serializer.read(Data.class, is, false);
 		} catch (IOException e) {
 			e.printStackTrace();

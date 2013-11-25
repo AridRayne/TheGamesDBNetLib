@@ -1,6 +1,7 @@
 package com.AridRayne.thegamesdb.lib;
 
 import java.io.Serializable;
+
 import org.simpleframework.xml.Element;
 
 /**
@@ -9,6 +10,10 @@ import org.simpleframework.xml.Element;
  */
 public class GameListItem implements Serializable {
     	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1400627509081199617L;
+		/**
 	 * 
 	 */
         @Element

@@ -1,7 +1,6 @@
 package com.AridRayne.thegamesdb.lib;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -30,7 +29,7 @@ public class Game implements Serializable {
 	@Element(name="Platform")
 	private String platform;
 	@Element(name="Overview", required=false)
-	private 	String overview;
+	private String overview;
 	@Element(name="ESRB", required=false)
 	private String esrb;
 	@Path("Genres")
@@ -49,7 +48,7 @@ public class Game implements Serializable {
 	@Element(name="Rating", required=false)
 	private double rating;
 	@Element(name="ReleaseDate", required=false)
-	private Date releaseDate;
+	private String releaseDate;
 	@Element(name="Images", required=false)
 	private GameImage images;
 	
@@ -265,7 +264,7 @@ public class Game implements Serializable {
 	 * Returns the release date for the game.
 	 * @return The release date for the game.
 	 */
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 
@@ -273,7 +272,7 @@ public class Game implements Serializable {
 	 * Sets the release date for the game.
 	 * @param releaseDate The release date for the game.
 	 */
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
@@ -298,7 +297,7 @@ public class Game implements Serializable {
 		this.title = "";
 		this.platformID = 0;
 		this.platform = "";
-		this.releaseDate = new Date();
+		this.releaseDate = "";
 		this.overview = "";
 		this.esrb = "";
 		this.players = "";

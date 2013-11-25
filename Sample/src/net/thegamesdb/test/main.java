@@ -26,16 +26,16 @@ public class main {
 		Data<Game> game = Utilities.getInstance().getGameFromID(2);
 		// Print the game's title and overview.
 		System.out.println(game.getItem(0).getTitle());
-                System.out.println(game.getItem(0).getOverview());
-                
-                // Retrieve a list of games from thegamesdb.net
-                GameList games = utilities.getGamesList("Battlefield");
-                
-                // Retrieve information about a specific game.
-                Data<Game> gameItem = utilities.getGameFromID(games.getItem(0).getId());
-                // Print the overview of the game.
-                System.out.println(gameItem.getItem(0).getTitle());
-                System.out.println(gameItem.getItem(0).getOverview());
+        System.out.println(game.getItem(0).getOverview());
+        
+        // Retrieve a list of games from thegamesdb.net
+        GameList games = utilities.getGamesList("x-men");
+        
+        // Retrieve information about a specific game.
+        Data<Game> gameItem = utilities.getGameFromID(games.getItem(0).getId());
+        // Print the overview of the game.
+        System.out.println(gameItem.getItem(0).getTitle());
+        System.out.println(gameItem.getItem(0).getOverview());
 	}
 
 }
