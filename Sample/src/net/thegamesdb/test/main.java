@@ -31,6 +31,9 @@ public class main {
         // Retrieve a list of games from thegamesdb.net
         GameList games = utilities.getGamesList("x-men");
         
+        Data<Game> gameNameSearch = utilities.getGameFromName("Super Mario");
+        System.out.println(gameNameSearch.getItems().size());
+        
         // Retrieve information about a specific game.
         Data<Game> gameItem = utilities.getGameFromID(games.getItem(0).getId());
         // Print the overview of the game.

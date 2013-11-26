@@ -84,6 +84,8 @@ public class Utilities {
 		this.userId = "";
 	}
 	
+	//TODO: Add a retrieveItem function with a generic that can be used to avoid re-writing the same code to get info from thegamesdb.net
+	
 	/**
 	 * Returns a Data<Platform> item that contains information about the platform with the specified ID.
 	 * @param ID The ID of the platform to retrieve.
@@ -132,6 +134,29 @@ public class Utilities {
 			e.printStackTrace();
 		}
 		
+		return game;
+	}
+	
+	/**
+	 * Returns a Data<Game> item that contains information about games with the specified name, this is a search.
+	 * @param name The name to search for
+	 * @return A Data<Game> item containing information about games with the specified name.
+	 */
+	public Data<Game> getGameFromName(String Name) {
+		Data<Game> game = new Data<Game>();
+		try {
+			URL url;
+			url = new URL(apiUrl + "GetGame.php?name=" + Name);
+			URLConnection conn = url.openConnection();
+			conn.setRequestProperty("User-Agent", userAgent);
+			InputStream is = conn.getInputStream();
+			Serializer serializer = new Persister();
+			game = serializer.read(Data.class, is, false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return game;
 	}
 	
