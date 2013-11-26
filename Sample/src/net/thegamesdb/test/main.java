@@ -18,24 +18,27 @@ public class main {
 		PlatformList platforms = utilities.getPlatformList();
              
 		// Retrieve information about a platform with an id from platforms.
-		Data<Platform> platform = utilities.getPlatformFromID(platforms.getItem(0).getId());
+		Data<Platform> platform = utilities.getPlatform(platforms.getItem(0).getId());
 		// Print the platform's overview.
 		System.out.println(platform.getItem(0).getOverview());
 
 		// Retrieve information about a game with id 2.
-		Data<Game> game = Utilities.getInstance().getGameFromID(2);
+		Data<Game> game = Utilities.getInstance().getGame(2);
 		// Print the game's title and overview.
 		System.out.println(game.getItem(0).getTitle());
         System.out.println(game.getItem(0).getOverview());
         
         // Retrieve a list of games from thegamesdb.net
-        GameList games = utilities.getGamesList("x-men");
+        GameList games = utilities.getGamesList("Battlefield 2");
         
-        Data<Game> gameNameSearch = utilities.getGameFromName("Super Mario");
-        System.out.println(gameNameSearch.getItems().size());
+        Data<Game> gameNameSearch = utilities.getGame("Super Mario");
+        System.out.println(gameNameSearch.getItem(0).getTitle());
+        
+        Data<Game> gamePlatformFilter = utilities.getGame("Super Mario", "Nintendo Entertainment System (NES)");
+        System.out.println(gamePlatformFilter.getItem(0).getTitle());
         
         // Retrieve information about a specific game.
-        Data<Game> gameItem = utilities.getGameFromID(games.getItem(0).getId());
+        Data<Game> gameItem = utilities.getGame(games.getItem(0).getId());
         // Print the overview of the game.
         System.out.println(gameItem.getItem(0).getTitle());
         System.out.println(gameItem.getItem(0).getOverview());

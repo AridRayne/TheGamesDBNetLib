@@ -2,10 +2,14 @@ package com.AridRayne.thegamesdb.lib;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
@@ -84,57 +88,41 @@ public class Utilities {
 		this.userId = "";
 	}
 	
-	//TODO: Add a retrieveItem function with a generic that can be used to avoid re-writing the same code to get info from thegamesdb.net
+	@SuppressWarnings("unchecked")
+	public <T> T apiRequest(String url, T ClassObject) {
+		try {
+			URL apiURL = new URL(apiUrl + url);
+			URLConnection conn = apiURL.openConnection();
+			conn.setRequestProperty("User-Agent", userAgent);
+			InputStream is = conn.getInputStream();
+			Serializer serializer = new Persister();
+			ClassObject = (T) serializer.read(ClassObject.getClass(), is, false);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ClassObject;
+	}
 	
 	/**
 	 * Returns a Data<Platform> item that contains information about the platform with the specified ID.
 	 * @param ID The ID of the platform to retrieve.
 	 * @return A Data<Platform> item containing information about the platform with the specified ID.
 	 */
-	@SuppressWarnings("unchecked")
-	public Data<Platform> getPlatformFromID(int ID) {
-		Data<Platform> platform = new Data<Platform>();
-		URL url;
-		try {
-			url = new URL(apiUrl + "GetPlatform.php?id=" + ID);
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			platform = serializer.read(Data.class, is, false);
-		} catch (IOException  e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return platform;
+	public Data<Platform> getPlatform(int ID) {
+		return apiRequest("GetPlatform.php?id=" + ID, new Data<Platform>());
 	}
 	
-	//TODO: Add the other options for finding games from http://wiki.thegamesdb.net/index.php?title=GetGame
 	/**
 	 * Returns a Data<Game> item that contains information about the game with the specified ID.
 	 * @param ID The ID of the game to retrieve.
 	 * @return A Data<Game> item containing information about the game with the specified ID.
 	 */
-	@SuppressWarnings("unchecked")
-	public Data<Game> getGameFromID(int ID) {
-		Data<Game> game = new Data<Game>();
-		try {
-			URL url;
-			url = new URL(apiUrl + "GetGame.php?id=" + ID);
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			game = serializer.read(Data.class, is, false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return game;
+	public Data<Game> getGame(int ID) {
+		return apiRequest("GetGame.php?id=" + ID, new Data<Game>());
 	}
 	
 	/**
@@ -142,22 +130,29 @@ public class Utilities {
 	 * @param name The name to search for
 	 * @return A Data<Game> item containing information about games with the specified name.
 	 */
-	public Data<Game> getGameFromName(String Name) {
-		Data<Game> game = new Data<Game>();
+	public Data<Game> getGame(String Name) {
 		try {
-			URL url;
-			url = new URL(apiUrl + "GetGame.php?name=" + Name);
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			game = serializer.read(Data.class, is, false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
+			return apiRequest("GetGame.php?name=" + URLEncoder.encode(Name, "UTF-8"), new Data<Game>());
+		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		return game;
+		return null;
+	}
+	
+	/**
+	 * Returns a Data<Game> item that contains information about games with the specified name, filtered by the specified platform.
+	 * PLEASE NOTE: The platform *must* be a valid platform, these can be found by getPlatformList(). The proper platform is the name.
+	 * @param Name The name to search for.
+	 * @param Platform The platform to filter by, this must be a valid platform name.
+	 * @return
+	 */
+	public Data<Game> getGame(String Name, String Platform) {
+		try {
+			return apiRequest("GetGame.php?name=" + URLEncoder.encode(Name, "UTF-8") + "&platform=" + URLEncoder.encode(Platform, "UTF-8"), new Data<Game>());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+		}
+		return null;
 	}
 	
 	/**
@@ -167,16 +162,7 @@ public class Utilities {
 	 * @see setUserID
 	 */
 	public void setRating(int ID, double Rating) {
-			try {
-				URL url;
-				url = new URL(apiUrl + "User_Rating.php?accountid=" + userId + "&itemid=" + ID + "&rating=" + Rating);
-				URLConnection conn = url.openConnection();
-				conn.setRequestProperty("User-Agent", userAgent);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		apiRequest("User_Rating.php?accountid=" + userId + "&itemid=" + ID + "&rating=" + Rating, null);
 	}
 	
 	/**
@@ -186,23 +172,7 @@ public class Utilities {
 	 * @see setUserId
 	 */
 	public double getRating(int ID) {
-		try {
-			URL url;
-			url = new URL(apiUrl + "User_Rating.php?accountid=" + userId + "&itemid=" + ID);
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			ratingClass rc = serializer.read(ratingClass.class, is, false);
-			return rc.getRating();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -1;
+		return apiRequest("User_Rating.php?accountid=" + userId + "&itemid=" + ID, new ratingClass()).getRating();
 	}
 	
 	/**
@@ -210,46 +180,14 @@ public class Utilities {
 	 * @return PlatformList containing a list of all platforms.
 	 */
 	public PlatformList getPlatformList() {
-		try {
-			URL url;
-			url = new URL(apiUrl + "GetPlatformsList.php");
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			PlatformList list = serializer.read(PlatformList.class, is, false);
-			return list;
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		return apiRequest("GetPlatformsList.php", new PlatformList());
 	}
         
-        	/**
+    /**
 	 * Returns a list of all platforms in thegamesdb.net database.
 	 * @return PlatformList containing a list of all platforms.
 	 */
 	public GameList getGamesList(String name) {
-		try {
-			URL url;
-			url = new URL(apiUrl + "GetGamesList.php?name=" + name);
-			URLConnection conn = url.openConnection();
-			conn.setRequestProperty("User-Agent", userAgent);
-			InputStream is = conn.getInputStream();
-			Serializer serializer = new Persister();
-			GameList list = serializer.read(GameList.class, is, false);
-			return list;
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		return apiRequest("GetGamesList.php?name=" + name, new GameList());
 	}
 }
