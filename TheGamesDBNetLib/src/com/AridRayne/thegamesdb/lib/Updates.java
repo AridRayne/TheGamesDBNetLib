@@ -13,12 +13,7 @@ import org.simpleframework.xml.ElementList;
  *
  */
 public class Updates implements Serializable {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2648027798677819292L;
-
 	@Element(name="Time")
 	private int time;	
 	@ElementList(entry="Game", inline=true)
@@ -29,7 +24,7 @@ public class Updates implements Serializable {
 	 * @return The time of the request from the server. This is GMT.
 	 */
 	public int getTime() {
-		return time;
+		return this.time;
 	}
 
 	/**
@@ -45,7 +40,7 @@ public class Updates implements Serializable {
 	 * @return A list of game IDs for games that have been update.
 	 */
 	public List<Integer> getItems() {
-		return items;
+		return this.items;
 	}
 
 	/**
@@ -58,11 +53,11 @@ public class Updates implements Serializable {
 
 	/**
 	 * Returns the game ID at the specified position.
-	 * @param Position The position of the game ID to retrieve.
+	 * @param position The position of the game ID to retrieve.
 	 * @return The game ID at the specified position.
 	 */
-	public int getItem(int Position) {
-		return this.items.get(Position);
+	public int getItem(int position) {
+		return this.items.get(position);
 	}
 
 	public Updates() {

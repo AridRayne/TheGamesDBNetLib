@@ -11,19 +11,18 @@ import org.simpleframework.xml.ElementList;
  *
  */
 public class Languages implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2867727676814797214L;
 	@ElementList(entry="Language", inline=true)
 	private List<LanguageItem> languages;
+
 	/**
 	 * Returns a list of LanguageItem with information about languages.
 	 * @return A list of LanguageItem with information about languages.
 	 */
 	public List<LanguageItem> getLanguages() {
-		return languages;
+		return this.languages;
 	}
+
 	/**
 	 * Sets the list of LanguageItem with information about languages.
 	 * @param languages The list of LanguageItem to set.
@@ -34,10 +33,10 @@ public class Languages implements Serializable{
 	
 	/**
 	 * Returns the LanguageItem at the specified position.
-	 * @param Position The position of the LanguageItem to get.
+	 * @param position The position of the LanguageItem to get.
 	 * @return The LanguageItem at the specified position.
 	 */
-	public LanguageItem getItem(int Position) {
-		return this.languages.get(Position);
+	public LanguageItem getItem(int position) {
+		return this.languages.get(position);
 	}
 }

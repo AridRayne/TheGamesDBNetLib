@@ -17,9 +17,6 @@ import com.AridRayne.thegamesdb.lib.image.GameImage;
  * @param <T> The type that will be used for the items. Usually Platform or Game.
  */
 public class Data<T> implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5504421083287971252L;
 	@ElementUnion({
 		@Element(name="baseImgUrl"),
@@ -32,13 +29,13 @@ public class Data<T> implements Serializable {
 		@ElementList(entry="Images", type=GameImage.class, inline=true)
 	})
 	private List<T> items;
-	
+
 	/**
 	 * Returns the base url for the data item, usually the base url for images. This can be null.
 	 * @return The base url for the data item.
 	 */
 	public String getBaseUrl() {
-		return baseUrl;
+		return this.baseUrl;
 	}
 	
 	/**
@@ -46,7 +43,7 @@ public class Data<T> implements Serializable {
 	 * @return The items for the data item.
 	 */
 	public List<T> getItems() {
-		return items;
+		return this.items;
 	}
 	
 	/**
@@ -59,10 +56,10 @@ public class Data<T> implements Serializable {
 	
 	/**
 	 * Returns an item at the specified position.
-	 * @param Position The position of the item to return.
+	 * @param position The position of the item to return.
 	 * @return The item at the specified position.
 	 */
-	public T getItem(int Position) {
-		return this.items.get(Position);
+	public T getItem(int position) {
+		return this.items.get(position);
 	}
 }

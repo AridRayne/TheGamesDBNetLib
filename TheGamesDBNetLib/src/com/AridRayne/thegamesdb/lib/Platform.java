@@ -14,9 +14,6 @@ import com.AridRayne.thegamesdb.lib.image.PlatformImage;
  */
 @Element(name="Platform")
 public class Platform implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8028629731109058336L;
 	@Element
 	private int id;
@@ -33,7 +30,7 @@ public class Platform implements Serializable {
 	@Element(required=false)
 	private String manufacturer;
 	@Element(required=false)
-	private String CPU;
+	private String cpu;
 	@Element(required=false)
 	private String memory;
 	@Element(required=false)
@@ -56,7 +53,7 @@ public class Platform implements Serializable {
 	 * @return The ID of the platform.
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
@@ -72,7 +69,7 @@ public class Platform implements Serializable {
 	 * @return The name of the platform.
 	 */
 	public String getName() {
-		return StringEscapeUtils.unescapeXml(name);
+		return StringEscapeUtils.unescapeXml(this.name);
 	}
 
 	/**
@@ -88,7 +85,7 @@ public class Platform implements Serializable {
 	 * @return The console url of the platform.
 	 */
 	public String getConsole() {
-		return StringEscapeUtils.unescapeXml(console);
+		return StringEscapeUtils.unescapeXml(this.console);
 	}
 
 	/**
@@ -104,7 +101,7 @@ public class Platform implements Serializable {
 	 * @return The controller url of the platform.
 	 */
 	public String getController() {
-		return StringEscapeUtils.unescapeXml(controller);
+		return StringEscapeUtils.unescapeXml(this.controller);
 	}
 
 	/**
@@ -120,7 +117,7 @@ public class Platform implements Serializable {
 	 * @return The overview of the platform.
 	 */
 	public String getOverview() {
-		return StringEscapeUtils.unescapeXml(overview);
+		return StringEscapeUtils.unescapeXml(this.overview);
 	}
 
 	/**
@@ -136,7 +133,7 @@ public class Platform implements Serializable {
 	 * @return The developer of the platform.
 	 */
 	public String getDeveloper() {
-		return StringEscapeUtils.unescapeXml(developer);
+		return StringEscapeUtils.unescapeXml(this.developer);
 	}
 
 	/**
@@ -152,7 +149,7 @@ public class Platform implements Serializable {
 	 * @return The manufacturer of the platform.
 	 */
 	public String getManufacturer() {
-		return StringEscapeUtils.unescapeXml(manufacturer);
+		return StringEscapeUtils.unescapeXml(this.manufacturer);
 	}
 
 	/**
@@ -168,15 +165,15 @@ public class Platform implements Serializable {
 	 * @return The CPU of the platform.
 	 */
 	public String getCPU() {
-		return StringEscapeUtils.unescapeXml(CPU);
+		return StringEscapeUtils.unescapeXml(this.cpu);
 	}
 
 	/**
-	 * Sets the CPU of the platform.
-	 * @param CPU The CPU of the platform.
+	 * Sets the cpu of the platform.
+	 * @param cpu The cpu of the platform.
 	 */
-	public void setCPU(String CPU) {
-		this.CPU = CPU;
+	public void setCPU(String cpu) {
+		this.cpu = cpu;
 	}
 
 	/**
@@ -184,7 +181,7 @@ public class Platform implements Serializable {
 	 * @return The memory of the platform.
 	 */
 	public String getMemory() {
-		return StringEscapeUtils.unescapeXml(memory);
+		return StringEscapeUtils.unescapeXml(this.memory);
 	}
 
 	/**
@@ -200,7 +197,7 @@ public class Platform implements Serializable {
 	 * @return The graphics of the platform.
 	 */
 	public String getGraphics() {
-		return StringEscapeUtils.unescapeXml(graphics);
+		return StringEscapeUtils.unescapeXml(this.graphics);
 	}
 
 	/**
@@ -216,7 +213,7 @@ public class Platform implements Serializable {
 	 * @return The sound of the platform.
 	 */
 	public String getSound() {
-		return StringEscapeUtils.unescapeXml(sound);
+		return StringEscapeUtils.unescapeXml(this.sound);
 	}
 
 	/**
@@ -232,7 +229,7 @@ public class Platform implements Serializable {
 	 * @return The display of the platform.
 	 */
 	public String getDisplay() {
-		return StringEscapeUtils.unescapeXml(display);
+		return StringEscapeUtils.unescapeXml(this.display);
 	}
 
 	/**
@@ -248,7 +245,7 @@ public class Platform implements Serializable {
 	 * @return The media of the platform.
 	 */
 	public String getMedia() {
-		return StringEscapeUtils.unescapeXml(media);
+		return StringEscapeUtils.unescapeXml(this.media);
 	}
 
 	/**
@@ -264,7 +261,7 @@ public class Platform implements Serializable {
 	 * @return The max controllers of the platform.
 	 */
 	public String getMaxControllers() {
-		return StringEscapeUtils.unescapeXml(maxControllers);
+		return StringEscapeUtils.unescapeXml(this.maxControllers);
 	}
 
 	/**
@@ -280,7 +277,7 @@ public class Platform implements Serializable {
 	 * @return The rating of the platform.
 	 */
 	public double getRating() {
-		return rating;
+		return this.rating;
 	}
 
 	/**
@@ -296,7 +293,7 @@ public class Platform implements Serializable {
 	 * @return The PlatformImage of the platform.
 	 */
 	public PlatformImage getImages() {
-		return images;
+		return this.images;
 	}
 
 	/**
@@ -313,7 +310,7 @@ public class Platform implements Serializable {
 		this.overview = "";
 		this.developer = "";
 		this.manufacturer = "";
-		this.CPU = "";
+		this.cpu = "";
 		this.memory = "";
 		this.graphics = "";
 		this.sound = "";

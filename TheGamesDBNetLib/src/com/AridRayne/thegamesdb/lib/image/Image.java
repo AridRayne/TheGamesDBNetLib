@@ -21,7 +21,7 @@ public class Image {
 	 * @return The width of the image.
 	 */
 	public int getWidth() {
-		return width;
+		return this.width;
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class Image {
 	 * @return The height of the image.
 	 */
 	public int getHeight() {
-		return height;
+		return this.height;
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class Image {
 	 * @return The url of the image.
 	 */
 	public String getUrl() {
-		return url;
+		return this.url;
 	}
 	
 	/**

@@ -18,7 +18,7 @@ public class FanArt {
 	 * @return The url of the fanart image.
 	 */
 	public Image getOriginal() {
-		return original;
+		return this.original;
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class FanArt {
 	 * @return The url of the thumbnail.
 	 */
 	public String getThumb() {
-		return thumb;
+		return this.thumb;
 	}
 	
 	/**

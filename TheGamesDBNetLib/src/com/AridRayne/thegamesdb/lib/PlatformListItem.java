@@ -10,9 +10,6 @@ import org.simpleframework.xml.Element;
  *
  */
 public class PlatformListItem implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2523150382777395131L;
 	@Element
 	private int id;
@@ -26,7 +23,7 @@ public class PlatformListItem implements Serializable {
 	 * @return The ID of the platform.
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
@@ -42,7 +39,7 @@ public class PlatformListItem implements Serializable {
 	 * @return The name of the platform.
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -58,7 +55,7 @@ public class PlatformListItem implements Serializable {
 	 * @return The alias of the platform.
 	 */
 	public String getAlias() {
-		return alias;
+		return this.alias;
 	}
 
 	/**

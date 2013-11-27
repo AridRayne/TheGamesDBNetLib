@@ -1,5 +1,7 @@
 package com.AridRayne.thegamesdb.lib;
 
+import java.io.Serializable;
+
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
@@ -10,7 +12,8 @@ import org.simpleframework.xml.Root;
  *
  */
 @Root(name="Data")
-public class ratingClass {
+public class ratingClass implements Serializable{
+	private static final long serialVersionUID = 7213685791384722888L;
 	@Path("game")
 	@Element(name="Rating")
 	private double rating;
@@ -20,7 +23,7 @@ public class ratingClass {
 	 * @return The rating.
 	 */
 	public double getRating() {
-		return rating;
+		return this.rating;
 	}
 
 	/**

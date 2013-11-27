@@ -18,15 +18,15 @@ public class GameImage {
 	private List<Image> banner;
 	@ElementList(inline=true, entry="screenshot", required=false)
 	private List<FanArt> screenshot;
-	@ElementList(inline=true, entry="clearlogo", required=false)
-	private List<Image> clearlogo;
+	@ElementList(inline=true, entry="clearLogo", required=false)
+	private List<Image> clearLogo;
 	
 	/**
 	 * Returns a list of FanArt items with information about the fanart.
 	 * @return List of FanArt items.
 	 */
 	public List<FanArt> getFanart() {
-		return fanart;
+		return this.fanart;
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class GameImage {
 	 * @return List of BoxArt items.
 	 */
 	public List<BoxArt> getBoxart() {
-		return boxart;
+		return this.boxart;
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class GameImage {
 	 * @return List of Image items.
 	 */
 	public List<Image> getBanner() {
-		return banner;
+		return this.banner;
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class GameImage {
 	 * @return List of FanArt items.
 	 */
 	public List<FanArt> getScreenshot() {
-		return screenshot;
+		return this.screenshot;
 	}
 	
 	/**
@@ -89,15 +89,15 @@ public class GameImage {
 	 * Returns a list of Image items with information about the ClearLogos.
 	 * @return List of Image items.
 	 */
-	public List<Image> getClearlogo() {
-		return clearlogo;
+	public List<Image> getClearLogo() {
+		return this.clearLogo;
 	}
 	
 	/**
 	 * Sets a list of Image items with information about the ClearLogos.
-	 * @param clearlogo List of Image items.
+	 * @param clearLogo List of Image items.
 	 */
-	public void setClearlogo(List<Image> clearlogo) {
-		this.clearlogo = clearlogo;
+	public void setClearLogo(List<Image> clearLogo) {
+		this.clearLogo = clearLogo;
 	}
 }

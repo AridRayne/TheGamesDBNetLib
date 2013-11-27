@@ -16,9 +16,6 @@ import org.simpleframework.xml.Root;
  */
 @Root
 public class PlatformList implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1229486620611225660L;
 	@Element
 	private String basePlatformUrl;
@@ -31,7 +28,7 @@ public class PlatformList implements Serializable {
 	 * @return The base platform url.
 	 */
 	public String getBasePlatformUrl() {
-		return basePlatformUrl;
+		return this.basePlatformUrl;
 	}
 
 	/**
@@ -47,7 +44,7 @@ public class PlatformList implements Serializable {
 	 * @return List of PlatformListItem.
 	 */
 	public List<PlatformListItem> getItems() {
-		return items;
+		return this.items;
 	}
 
 	/**
@@ -58,12 +55,17 @@ public class PlatformList implements Serializable {
 		this.items = items;
 	}
 	
-	public PlatformListItem getItem(int Position) {
-		return this.items.get(Position);
+	/**
+	 * Returns the PlatformListItem at the specified position.
+	 * @param position The position of the PlatformListItem to get.
+	 * @return The PlatformListItem at the specified position.
+	 */
+	public PlatformListItem getItem(int position) {
+		return this.items.get(position);
 	}
 
 	public PlatformList() {
-		basePlatformUrl = "";
-		items = new ArrayList<PlatformListItem>();
+		this.basePlatformUrl = "";
+		this.items = new ArrayList<PlatformListItem>();
 	}
 }

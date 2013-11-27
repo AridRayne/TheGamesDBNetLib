@@ -16,7 +16,7 @@ public class BoxArt extends Image {
 	 * @return Which side of the box the image is of.
 	 */
 	public String getSide() {
-		return side;
+		return this.side;
 	}
 
 	/**

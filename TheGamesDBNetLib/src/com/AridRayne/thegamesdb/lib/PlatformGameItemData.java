@@ -13,9 +13,6 @@ import org.simpleframework.xml.ElementList;
  *
  */
 public class PlatformGameItemData implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5513626853640738642L;
 	@ElementList(entry="Game", inline=true)
 	private List<PlatformGameItem> items;
@@ -25,7 +22,7 @@ public class PlatformGameItemData implements Serializable {
 	 * @return A list of PlatformGameItems with information about the games for the platform.
 	 */
 	public List<PlatformGameItem> getItems() {
-		return items;
+		return this.items;
 	}
 
 	/**
@@ -42,10 +39,10 @@ public class PlatformGameItemData implements Serializable {
 	
 	/**
 	 * Returns the PlatformGameItem with the specified position.
-	 * @param Position The position of the PlatformGameItem to get.
+	 * @param position The position of the PlatformGameItem to get.
 	 * @return The PlatformGameItem with the specified position.
 	 */
-	public PlatformGameItem getItem(int Position) {
-		return this.items.get(Position);
+	public PlatformGameItem getItem(int position) {
+		return this.items.get(position);
 	}
 }

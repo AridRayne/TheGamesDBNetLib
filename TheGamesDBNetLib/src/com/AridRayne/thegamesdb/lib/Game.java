@@ -16,9 +16,6 @@ import com.AridRayne.thegamesdb.lib.image.GameImage;
  *
  */
 public class Game implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3404387198259596339L;
 	@Element
 	private int id;
@@ -51,15 +48,15 @@ public class Game implements Serializable {
 	private String releaseDate;
 	@Element(name="Images", required=false)
 	private GameImage images;
-	
+
 	/**
 	 * Returns the game's ID.
 	 * @return The game's ID.
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
-
+	
 	/**
 	 * Sets the game's ID.
 	 * @param id The ID of the game.
@@ -73,7 +70,7 @@ public class Game implements Serializable {
 	 * @return The game's title.
 	 */
 	public String getTitle() {
-		return StringEscapeUtils.unescapeXml(title);
+		return StringEscapeUtils.unescapeXml(this.title);
 	}
 
 	/**
@@ -89,7 +86,7 @@ public class Game implements Serializable {
 	 * @return The game's platform ID.
 	 */
 	public int getPlatformID() {
-		return platformID;
+		return this.platformID;
 	}
 
 	/**
@@ -105,7 +102,7 @@ public class Game implements Serializable {
 	 * @return The name of the platform that the game belongs to.
 	 */
 	public String getPlatform() {
-		return StringEscapeUtils.unescapeXml(platform);
+		return StringEscapeUtils.unescapeXml(this.platform);
 	}
 
 	/**
@@ -121,7 +118,7 @@ public class Game implements Serializable {
 	 * @return The overview of the game.
 	 */
 	public String getOverview() {
-		return StringEscapeUtils.unescapeXml(overview);
+		return StringEscapeUtils.unescapeXml(this.overview);
 	}
 
 	/**
@@ -137,7 +134,7 @@ public class Game implements Serializable {
 	 * @return the ESRB rating of the game.
 	 */
 	public String getEsrb() {
-		return StringEscapeUtils.unescapeXml(esrb);
+		return StringEscapeUtils.unescapeXml(this.esrb);
 	}
 
 	/**
@@ -153,7 +150,7 @@ public class Game implements Serializable {
 	 * @return A list of the genres for the game.
 	 */
 	public List<String> getGenres() {
-		return genres;
+		return this.genres;
 	}
 
 	/**
@@ -169,7 +166,7 @@ public class Game implements Serializable {
 	 * @return The number of players for the game.
 	 */
 	public String getPlayers() {
-		return StringEscapeUtils.unescapeXml(players);
+		return StringEscapeUtils.unescapeXml(this.players);
 	}
 
 	/**
@@ -185,7 +182,7 @@ public class Game implements Serializable {
 	 * @return The Co-Op capabilities of the game.
 	 */
 	public String getCoop() {
-		return StringEscapeUtils.unescapeXml(coop);
+		return StringEscapeUtils.unescapeXml(this.coop);
 	}
 
 	/**
@@ -201,7 +198,7 @@ public class Game implements Serializable {
 	 * @return The youtube link for the game.
 	 */
 	public String getYoutube() {
-		return youtube;
+		return this.youtube;
 	}
 
 	/**
@@ -217,7 +214,7 @@ public class Game implements Serializable {
 	 * @return The publisher for the game.
 	 */
 	public String getPublisher() {
-		return StringEscapeUtils.unescapeXml(publisher);
+		return StringEscapeUtils.unescapeXml(this.publisher);
 	}
 
 	/**
@@ -233,7 +230,7 @@ public class Game implements Serializable {
 	 * @return The developer for the game.
 	 */
 	public String getDeveloper() {
-		return StringEscapeUtils.unescapeXml(developer);
+		return StringEscapeUtils.unescapeXml(this.developer);
 	}
 
 	/**
@@ -249,7 +246,7 @@ public class Game implements Serializable {
 	 * @return The rating for the game.
 	 */
 	public double getRating() {
-		return rating;
+		return this.rating;
 	}
 
 	/**
@@ -265,7 +262,7 @@ public class Game implements Serializable {
 	 * @return The release date for the game.
 	 */
 	public String getReleaseDate() {
-		return releaseDate;
+		return this.releaseDate;
 	}
 
 	/**
@@ -281,7 +278,7 @@ public class Game implements Serializable {
 	 * @return The images for the game.
 	 */
 	public GameImage getImages() {
-		return images;
+		return this.images;
 	}
 
 	/**

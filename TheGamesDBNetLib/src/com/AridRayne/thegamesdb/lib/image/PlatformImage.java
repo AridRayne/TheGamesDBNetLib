@@ -10,83 +10,39 @@ import org.simpleframework.xml.ElementList;
  */
 public class PlatformImage extends GameImage {
 	@ElementList(inline=true, entry="consoleart", required=false)
-	private List<String> consoleart;
+	private List<String> consoleArt;
 	@ElementList(inline=true, entry="controllerart", required=false)
-	private List<String> controllerart;
+	private List<String> controllerArt;
 	
 	/**
 	 * Returns a list of urls of console art.
 	 * @return List of urls of console art.
 	 */
-	public List<String> getConsoleart() {
-		return consoleart;
+	public List<String> getConsoleArt() {
+		return this.consoleArt;
 	}
 	
 	/**
 	 * Sets the list of urls of console art.
-	 * @param consoleart List of urls of console art.
+	 * @param consoleArt List of urls of console art.
 	 */
-	public void setConsoleart(List<String> consoleart) {
-		this.consoleart = consoleart;
+	public void setConsoleArt(List<String> consoleart) {
+		this.consoleArt = consoleart;
 	}
 	
 	/**
 	 * Returns a list of urls of controller art.
 	 * @return List of urls of controller art.
 	 */
-	public List<String> getControllerart() {
-		return controllerart;
+	public List<String> getControllerArt() {
+		return this.controllerArt;
 	}
 	
 	/**
 	 * Sets the list of urls of controller art.
-	 * @param controllerart List of urls of controller art.
+	 * @param controllerArt List of urls of controller art.
 	 */
-	public void setControllerart(List<String> controllerart) {
-		this.controllerart = controllerart;
+	public void setControllerArt(List<String> controllerArt) {
+		this.controllerArt = controllerArt;
 	}
-	
-	/*
-	@ElementList(inline=true, entry="fanart", required=false)
-	private List<FanArt> fanart;
-	@ElementList(inline=true, entry="boxart", required=false)
-	private List<BoxArt> boxart;
-	@ElementList(inline=true, entry="banner", required=false)
-	private List<Image> banner;
-	@ElementList(inline=true, entry="consoleart", required=false)
-	private List<String> consoleart;
-	@ElementList(inline=true, entry="controllerart", required=false)
-	private List<String> controllerart;
-	
-	public List<FanArt> getFanart() {
-		return fanart;
-	}
-	public void setFanart(List<FanArt> fanart) {
-		this.fanart = fanart;
-	}
-	public List<BoxArt> getBoxart() {
-		return boxart;
-	}
-	public void setBoxart(List<BoxArt> boxart) {
-		this.boxart = boxart;
-	}
-	public List<Image> getBanner() {
-		return banner;
-	}
-	public void setBanner(List<Image> banner) {
-		this.banner = banner;
-	}
-	public List<String> getConsoleart() {
-		return consoleart;
-	}
-	public void setConsoleart(List<String> consoleart) {
-		this.consoleart = consoleart;
-	}
-	public List<String> getControllerart() {
-		return controllerart;
-	}
-	public void setControllerart(List<String> controllerart) {
-		this.controllerart = controllerart;
-	}
-	*/
 }

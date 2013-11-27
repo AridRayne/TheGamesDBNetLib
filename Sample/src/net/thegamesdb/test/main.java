@@ -25,7 +25,7 @@ public class main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter User Account ID: ");
         String accountID = br.readLine();
-        utilities.setUserId(accountID);
+        utilities.setUserAccountID(accountID);
 
 		// Retrieve a list of platforms from thegamesdb.net
 		PlatformList platforms = utilities.getPlatformList();
