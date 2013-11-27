@@ -223,4 +223,13 @@ public class Utilities {
 	public Data<GameImage> getArt(int ID) {
 		return apiRequest("GetArt.php?id=" + ID, new Data<GameImage>());
 	}
+	
+	/**
+	 * Returns a list of game IDs that have been updated in the last seconds specified by time.
+	 * @param time How many seconds back to look for updated games.
+	 * @return List of games that have been updated in last time seconds.
+	 */
+	public Updates getUpdates(int time) {
+		return apiRequest("Updates.php?time=" + time, new Updates());
+	}
 }

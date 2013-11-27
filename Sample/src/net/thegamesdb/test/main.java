@@ -8,6 +8,7 @@ import com.AridRayne.thegamesdb.lib.Game;
 import com.AridRayne.thegamesdb.lib.GameList;
 import com.AridRayne.thegamesdb.lib.Platform;
 import com.AridRayne.thegamesdb.lib.PlatformList;
+import com.AridRayne.thegamesdb.lib.Updates;
 import com.AridRayne.thegamesdb.lib.UserFavorites;
 import com.AridRayne.thegamesdb.lib.Utilities;
 import com.AridRayne.thegamesdb.lib.image.GameImage;
@@ -58,5 +59,8 @@ public class main {
         
         Data<GameImage> images = utilities.getArt(2);
         System.out.println(images.getBaseUrl());
+        
+        Updates updates = utilities.getUpdates(20000);
+        System.out.println(updates.getItems().size());
 	}
 }

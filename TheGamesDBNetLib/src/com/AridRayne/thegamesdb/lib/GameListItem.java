@@ -9,15 +9,12 @@ import org.simpleframework.xml.Element;
  * @author Pieter van Dorst
  */
 public class GameListItem implements Serializable {
-    	/**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1400627509081199617L;
-		/**
-	 * 
-	 */
-        @Element
-        private int id;
+    @Element
+    private int id;
 	@Element(name="GameTitle")
 	private String title;
 	@Element(name="ReleaseDate", required=false)
@@ -73,21 +70,21 @@ public class GameListItem implements Serializable {
 		this.releaseDate = releaseDate;
 	}
         
-        /**
-         * get the platform the game runs on.
-         * @return the platform the game runs on.
-         */
-        public String getPlatform() {
-            return platform;
-        }
-        
-        /**
-         * Set the platform the game runs on.
-         * @param platform the platform the game runs on.
-         */
-        public void setPlatform(String platform) {
-            this.platform = platform;
-        }
+    /**
+     * get the platform the game runs on.
+     * @return the platform the game runs on.
+     */
+    public String getPlatform() {
+        return platform;
+    }
+    
+    /**
+     * Set the platform the game runs on.
+     * @param platform the platform the game runs on.
+     */
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
 
 	@Override
 	public String toString() {
