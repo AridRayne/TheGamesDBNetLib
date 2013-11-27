@@ -225,9 +225,10 @@ public class Utilities {
 	}
 	
 	/**
-	 * Returns a list of game IDs that have been updated in the last seconds specified by time.
+	 * Returns a list of game IDs for games that have been updated in the last however many seconds specified by the time parameter.
+	 * For instance, passing 2,000 as the parameter time will look for games updated in the last 2,000 seconds.
 	 * @param time How many seconds back to look for updated games.
-	 * @return List of games that have been updated in last time seconds.
+	 * @return List of games that have been updated in the last however many seconds specified by the time parameter.
 	 */
 	public Updates getUpdates(int time) {
 		return apiRequest("Updates.php?time=" + time, new Updates());
