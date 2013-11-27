@@ -7,6 +7,7 @@ import com.AridRayne.thegamesdb.lib.Data;
 import com.AridRayne.thegamesdb.lib.Game;
 import com.AridRayne.thegamesdb.lib.GameList;
 import com.AridRayne.thegamesdb.lib.Platform;
+import com.AridRayne.thegamesdb.lib.PlatformGameItemData;
 import com.AridRayne.thegamesdb.lib.PlatformList;
 import com.AridRayne.thegamesdb.lib.Updates;
 import com.AridRayne.thegamesdb.lib.UserFavorites;
@@ -62,5 +63,11 @@ public class main {
         
         Updates updates = utilities.getUpdates(20000);
         System.out.println(updates.getItems().size());
+        
+        PlatformGameItemData platformGames = utilities.getPlatformGames(1);
+        System.out.println(platformGames.getItems().size());
+        
+        PlatformGameItemData platformGamesFromName = utilities.getPlatformGames("microsoft xbox");
+        System.out.println(platformGamesFromName.getItems().size());
 	}
 }

@@ -34,7 +34,7 @@ public class Data<T> implements Serializable {
 	private List<T> items;
 	
 	/**
-	 * Returns the base url for the data item, usually teh base url for images. This can be null.
+	 * Returns the base url for the data item, usually the base url for images. This can be null.
 	 * @return The base url for the data item.
 	 */
 	public String getBaseUrl() {

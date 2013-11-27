@@ -151,6 +151,7 @@ public class Utilities {
 			return apiRequest("GetGame.php?name=" + URLEncoder.encode(Name, "UTF-8") + "&platform=" + URLEncoder.encode(Platform, "UTF-8"), new Data<Game>());
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -187,8 +188,14 @@ public class Utilities {
 	 * Returns a list of all platforms in thegamesdb.net database.
 	 * @return PlatformList containing a list of all platforms.
 	 */
-	public GameList getGamesList(String name) {
-		return apiRequest("GetGamesList.php?name=" + name, new GameList());
+	public GameList getGamesList(String Name) {
+		try {
+			return apiRequest("GetGamesList.php?name=" + URLEncoder.encode(Name, "UTF-8"), new GameList());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**
@@ -232,5 +239,30 @@ public class Utilities {
 	 */
 	public Updates getUpdates(int time) {
 		return apiRequest("Updates.php?time=" + time, new Updates());
+	}
+	
+	/**
+	 * Returns a PlatformGameItemData item containing information about all the games for the platform with the specified ID.
+	 * Please note: the field "thumb" will most likely be null.
+	 * @param ID The ID of the platform to get the list of games for.
+	 * @return A PlatformGameItemData item containing information about all the games for the platform with the specified ID.
+	 */
+	public PlatformGameItemData getPlatformGames(int ID) {
+		return apiRequest("GetPlatformGames.php?platform=" + ID, new PlatformGameItemData());
+	}
+	
+	/**
+	 * Returns a PlatformGameItemData item containing information about all the games for the platform with the specified platform name.
+	 * @param platformName The name of the platform to get the list of games for.
+	 * @return A PlatformGameItemData item containing information about all the games for the platform with the specified platform name.
+	 */
+	public PlatformGameItemData getPlatformGames(String platformName) {
+		try {
+			return apiRequest("PlatformGames.php?platform=" + URLEncoder.encode(platformName, "UTF-8"), new PlatformGameItemData());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
