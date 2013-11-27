@@ -8,6 +8,8 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementListUnion;
 import org.simpleframework.xml.ElementUnion;
 
+import com.AridRayne.thegamesdb.lib.image.GameImage;
+
 /**
  * A class that contains information retrieved from thegamesdb.net
  * @author AridRayne
@@ -27,6 +29,7 @@ public class Data<T> implements Serializable {
 	@ElementListUnion({
 		@ElementList(entry="Game", type=Game.class, inline=true),
 		@ElementList(entry="Platform", type=Platform.class, inline=true),
+		@ElementList(entry="Images", type=GameImage.class, inline=true)
 	})
 	private List<T> items;
 	

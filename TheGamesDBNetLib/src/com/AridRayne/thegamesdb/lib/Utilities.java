@@ -11,6 +11,8 @@ import java.net.URLEncoder;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import com.AridRayne.thegamesdb.lib.image.GameImage;
+
 /**
  * A utilities class that helps get information from thegamesdb.net.
  * @author AridRayne
@@ -205,7 +207,20 @@ public class Utilities {
 		apiRequest("User_Favorites.php?accountid=" + userId + "&type=remove&gameid=" + ID, null);
 	}
 	
+	/**
+	 * Returns a UserFavorites item containing a list of the user's favorites.
+	 * @return A UserFavorites item containing a list of the user's favorites.
+	 */
 	public UserFavorites getFavorites() {
 		return apiRequest("User_Favorites.php?accountid=" + userId, new UserFavorites());
+	}
+	
+	/**
+	 * Returns a Data<GameImage> item containing information about the images for the game with the specified ID.
+	 * @param ID The ID of the game to retrieve art for.
+	 * @return A Data<GameImage> item containing information about the images for the game with the specified ID.
+	 */
+	public Data<GameImage> getArt(int ID) {
+		return apiRequest("GetArt.php?id=" + ID, new Data<GameImage>());
 	}
 }

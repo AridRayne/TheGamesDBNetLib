@@ -10,6 +10,7 @@ import com.AridRayne.thegamesdb.lib.Platform;
 import com.AridRayne.thegamesdb.lib.PlatformList;
 import com.AridRayne.thegamesdb.lib.UserFavorites;
 import com.AridRayne.thegamesdb.lib.Utilities;
+import com.AridRayne.thegamesdb.lib.image.GameImage;
 
 
 public class main {
@@ -54,5 +55,8 @@ public class main {
         
         UserFavorites faves = utilities.getFavorites();
         System.out.println(faves.getGames().size());
+        
+        Data<GameImage> images = utilities.getArt(2);
+        System.out.println(images.getBaseUrl());
 	}
 }
