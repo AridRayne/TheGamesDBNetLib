@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import com.AridRayne.thegamesdb.lib.Data;
 import com.AridRayne.thegamesdb.lib.Game;
 import com.AridRayne.thegamesdb.lib.GameList;
+import com.AridRayne.thegamesdb.lib.Languages;
 import com.AridRayne.thegamesdb.lib.Platform;
 import com.AridRayne.thegamesdb.lib.PlatformGameItemData;
 import com.AridRayne.thegamesdb.lib.PlatformList;
@@ -69,5 +70,8 @@ public class main {
         
         PlatformGameItemData platformGamesFromName = utilities.getPlatformGames("microsoft xbox");
         System.out.println(platformGamesFromName.getItems().size());
+        
+        Languages languages = utilities.getUserPreferredLanguage();
+        System.out.println(languages.getItem(0).getName());
 	}
 }

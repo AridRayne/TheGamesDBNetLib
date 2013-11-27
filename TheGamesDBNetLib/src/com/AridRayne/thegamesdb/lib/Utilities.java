@@ -265,4 +265,8 @@ public class Utilities {
 		}
 		return null;
 	}
+	
+	public Languages getUserPreferredLanguage() {
+		return apiRequest("User_PreferredLanguage.php?accountid=" + userId, new Languages());
+	}
 }
