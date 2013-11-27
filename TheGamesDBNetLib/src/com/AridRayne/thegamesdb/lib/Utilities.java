@@ -188,4 +188,24 @@ public class Utilities {
 	public GameList getGamesList(String name) {
 		return apiRequest("GetGamesList.php?name=" + name, new GameList());
 	}
+	
+	/**
+	 * Adds the game with the specified ID to the user's favorites.
+	 * @param ID The ID of the game to add to the user's favorites.
+	 */
+	public void addFavorite(int ID) {
+		apiRequest("User_Favorites.php?accountid=" + userId + "&type=add&gameid=" + ID, null);
+	}
+	
+	/**
+	 * Removes the game with the specified ID from the user's favorites.
+	 * @param ID The ID of the game to remove from the favorites.
+	 */
+	public void removeFavorite(int ID) {
+		apiRequest("User_Favorites.php?accountid=" + userId + "&type=remove&gameid=" + ID, null);
+	}
+	
+	public UserFavorites getFavorites() {
+		return apiRequest("User_Favorites.php?accountid=" + userId, new UserFavorites());
+	}
 }

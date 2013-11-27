@@ -1,18 +1,27 @@
 package net.thegamesdb.test;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.AridRayne.thegamesdb.lib.Data;
 import com.AridRayne.thegamesdb.lib.Game;
 import com.AridRayne.thegamesdb.lib.GameList;
 import com.AridRayne.thegamesdb.lib.Platform;
 import com.AridRayne.thegamesdb.lib.PlatformList;
+import com.AridRayne.thegamesdb.lib.UserFavorites;
 import com.AridRayne.thegamesdb.lib.Utilities;
 
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// Get an instance of the utilities singleton.
 		Utilities utilities = Utilities.getInstance();
-		utilities.setUserId("User Account ID");
+        // This has no real use in the library itself, this just gets the user account id from standard input and sets it in the Utilities singleton.
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter User Account ID: ");
+        String accountID = br.readLine();
+        utilities.setUserId(accountID);
 
 		// Retrieve a list of platforms from thegamesdb.net
 		PlatformList platforms = utilities.getPlatformList();
@@ -42,6 +51,8 @@ public class main {
         // Print the overview of the game.
         System.out.println(gameItem.getItem(0).getTitle());
         System.out.println(gameItem.getItem(0).getOverview());
+        
+        UserFavorites faves = utilities.getFavorites();
+        System.out.println(faves.getGames().size());
 	}
-
 }
